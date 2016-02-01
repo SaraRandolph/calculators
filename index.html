@@ -10,9 +10,130 @@
     <link rel="stylesheet" href="assets/styles/style.css">
     
 </head>
-<body ng-controller="MainController as mc">
+
+<!--<div class="jumbotron text-center">
+		<h1>Calculators</h1>		
+	</div>
+	<div class="panel panel-default" ng-controller="">
+		<div class="panel-heading">
+			<ul class="nav nav-pills">
+				<li ng-class="{'active': vm.view === 'home'}"><a href="#home" ng-click="vm.changeView('home')">Home</a></li>
+				<li ng-class="{'active': vm.view === 'Miles and Kilometers'}"><a href="#start" ng-click="vm.changeView('start')">Getting Started</a></li>
+				<li ng-class="{'active': vm.view === 'Farenheight and Celcius'}"><a href="#expressions" ng-click="vm.changeView('expressions')">Expressions</a></li>
+				<li ng-class="{'active': vm.view === 'Pounds and Kilograms'}"><a href="#bindings" ng-click="vm.changeView('bindings')">Bindings</a></li>
+				<li ng-class="{'active': vm.view === 'Inches in Foot'}"><a href="#controllers" ng-click="vm.changeView('controllers')">Controllers</a></li>
+				<li ng-class="{'active': vm.view === 'BMI'}"><a href="#repeat" ng-click="vm.changeView('repeat')">Repeating</a></li>
+				<li ng-class="{'active': vm.view === 'Loans and Payments'}"><a href="#cart" ng-click="vm.changeView('cart')">Cart Project</a></li>
+			</ul>
+		</div>
+		<div class="panel-body">
+			<div ng-controller="HomeController as controller" ng-include="'app/components/home/home.html'" ng-if="vm.view === 'home'"></div>
+			<div ng-controller="StartController as controller" ng-include="'app/components/start/start.html'" ng-if="vm.view === 'start'"></div>
+			<div ng-controller="ExpressionsController as controller" ng-include="'app/components/expressions/expressions.html'" ng-if="vm.view === 'expressions'"></div>
+			<div ng-controller="BindingsController as controller" ng-include="'app/components/bindings/bindings.html'" ng-if="vm.view === 'bindings'"></div>
+			<div ng-controller="RepeatController as controller" ng-include="'app/components/repeat/repeating.html'" ng-if="vm.view === 'repeat'"></div>
+			<div ng-controller="ControllersController as controller" ng-include="'app/components/controllers/controllers.html'" ng-if="vm.view === 'controllers'"></div>
+			<div ng-controller="CartController as controller" ng-include="'app/components/cart/cart.html'" ng-if="vm.view === 'cart'"></div>
+		</div>
+	</div>-->
+
+<!--M2K-->
+<div ng-controller="M2KController as mc">
+    <div>
+        <input type="number" ng-model="miles">
+        <button ng-click="mc.doMilesMath(miles)">Miles to Kilometers</button>
+        {{mc.doMilesMath(miles)}} <span>kilometers</span>
+    </div>
+    <div>
+        <input type="number" ng-model="km">
+        <button ng-click="mc.doKmMath(km)">Kilometers to Miles</button>
+        {{mc.doKmMath(km)}} <span>miles</span>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div ng-controller = "C-FController as cf">
+    <div>
+        <input type="number" ng-model="celsius">
+            <button ng-click="cf.doCelsiusMath(celsius)">Celcius to Farenheight</button>
+            {{cf.doCelsiusMath(celsius)}} <span>farenheight</span>
+        </div>
+        <div>
+            <input type="number" ng-model="farenheight">
+            <button ng-click="cf.doFahrenheitMath(farenheight)">Farenheight to Celcius</button>
+            {{cf.doFahrenheitMath(farenheight)}} <span> celsius</span>
+        </div>
+</div>    
     
-    {{mc.test}}
+<br>
+<br>
+<br>
+
+<div ng-controller = "P-KController as pk">
+    <div>
+        <input type="number" ng-model="pound">
+            <button ng-click="pk.doPoundMath(pound)">Pounds to Kilograms</button>
+            {{pk.doPoundMath(pound)}} <span>kilograms</span>
+        </div>
+        <div>
+            <input type="number" ng-model="kilograms">
+            <button ng-click="pk.doKilogramMath(kilograms)">Kilograms to Pounds</button>
+            {{pk.doKilogramMath(kilograms)}} <span> pounds</span>
+        </div>
+</div>    
+
+<br>
+<br>
+<br>
+
+<div ng-controller = "I-FController as if">
+    <div>
+        <input type="number" ng-model="inches">
+            <button ng-click="if.doInchesMath(inches)">Inches to Feet</button>
+            {{if.doInchesMath(inches)}} <span>feet</span>
+        </div>
+        <div>
+            <input type="number" ng-model="foot">
+            <button ng-click="if.doFootMath(foot)">Feet to Inches</button>
+            {{if.doFootMath(foot)}} <span> inches</span>
+        </div>
+</div>    
+
+<br>
+<br>
+<br>
+
+<div ng-controller = "BMIController as bmi">
+    <div>
+        <input type="number" ng-model="feet" placeholder="feet">
+        <input type="number" ng-model="inches" placeholder="inches">
+        <input type="number" ng-model="weight" placeholder="weight">
+        <button ng-click="bmi.doBMIMath(height,weight)">Calculate</button>
+        {{bmi.doBMIMath(feet,inches,weight)}} <span>BMI</span>
+        </div>
+       
+</div>    
+
+<br>
+<br>
+<br>
+
+<div ng-controller = "L-PController as lp">
+    <div>
+        <input type="number" ng-model="principle" placeholder="principle">
+        <input type="number" ng-model="interestRate" placeholder="interest rate">
+        <input type="number" ng-model="interestPeriods" placeholder="interest periods">
+        <button ng-click="lp.doLPMath(principle, interestRate, interestPeriods)">Calculate</button>
+        {{lp.doLPMath(principle, interestRate, interestPeriods)}} <span>Final Balance</span>
+        </div>
+       
+</div>    
+    
+    
+    
     
 <!--Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
@@ -23,7 +144,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <!--My Scripts-->
     <script src ="app/app.js"></script>
-    <script src="app/components/Main-Controller.js"></script>
+    <script src="app/components/M2K/Main-Controller.js"></script>
     
 </body>
 </html>

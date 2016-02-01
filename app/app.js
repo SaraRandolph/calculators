@@ -1,1 +1,1 @@
-var app = angular.module('calculators', [])
+var app = angular.module('calculators', []);
